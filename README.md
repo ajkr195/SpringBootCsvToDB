@@ -1,2 +1,2 @@
 # SpringBootCsvToDB
-Inventory management System
+Inventory management System using SpringBoot Thymeleaf and Database
