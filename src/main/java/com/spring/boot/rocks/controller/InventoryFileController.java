@@ -24,12 +24,12 @@ public class InventoryFileController {
 	@Autowired
 	InventoryRepository inventoryRepository;
 
-	@GetMapping("/")
+	@GetMapping({ "/", "/inventoryupload" })
 	public String index() {
 		return "inventoryuploadform";
 	}
 
-	@PostMapping("/")
+	@PostMapping("/inventoryupload")
 	public String uploadMultipartFile(@RequestParam("uploadfile") MultipartFile file, Model model) {
 		try {
 			fileServices.store(file);
@@ -40,7 +40,7 @@ public class InventoryFileController {
 		return "inventoryuploadform";
 	}
 
-	@GetMapping("/file")
+	@GetMapping("/inventorydownload")
 	public void downloadFile(HttpServletResponse response) throws IOException {
 		response.setContentType("text/csv");
 		response.setHeader("Content-Disposition", "attachment; filename=inventoryitems.csv");
@@ -48,10 +48,10 @@ public class InventoryFileController {
 		fileServices.loadFile(response.getWriter());
 	}
 
-	@GetMapping("/inventoryitemlist")
+	@GetMapping("/inventorylist")
 	public String inventoryitemList(Model model) throws IOException {
 
 		model.addAttribute("inventoryitems", inventoryRepository.findAll());
-		return "inventoryitemlist";
+		return "inventorylist";
 	}
 }

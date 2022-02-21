@@ -15,19 +15,19 @@
 				<div class="col-sm-8">
 					<h3 class="text-center">Upload CSV records to Database</h3>
 					
-					<a class="btn btn-sm btn-primary" href="/inventoryitemlist">Inventory List</a>
+					<a class="btn btn-sm btn-primary" href="/inventorylist">Inventory List</a>
 					
 					<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
 						<div class="form-group">
 							<label class="control-label" for="uploadfile">Upload File:</label>
 							<input type="file" class="form-control" id="uploadfile" placeholder="Upload File"
-								name="uploadfile"></input>
+								name="uploadfile" required="required"/>
 						</div>
 						<button type="submit" class="btn btn-sm btn-danger" id="btnSubmit">Upload</button>
 					</form>
 					<div th:if="${message}">
 						<span th:text="${message}" />
-						<a href="/file">Download CSV File from Database</a>
+						<a href="/inventorydownload">Download CSV File from Database</a>
 					</div>
 
 

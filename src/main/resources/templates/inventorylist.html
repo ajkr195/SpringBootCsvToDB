@@ -14,7 +14,7 @@
 			<div class="row h-100 justify-content-center align-items-center">
 				<div class="col-sm-8">
 					<h3 class="text-center">Inventory List</h3>
-					<a class="btn btn-sm btn-primary" href="/">Upload More</a>
+					<a class="btn btn-sm btn-primary" href="/inventoryupload">Upload More</a>
 					<table class="table table-condensed table-striped">
 						<thead>
 							<tr>
@@ -35,6 +35,7 @@
 								<td><span th:text="${inventoryitem.itemquantity}"> itemquantity </span></td>
 							</tr>
 						</tbody>
+						<a href="/inventorydownload">Download CSV File from Database</a>
 					</table>
 
 
